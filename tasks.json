@@ -1,0 +1,23 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+	  {
+		"label": "g++ build lobby.cpp",
+		"type": "shell",
+		"command": "g++",  // Use "g++" instead of "/usr/bin/g++" for MinGW or system PATH
+		"args": [
+		  "-g",
+		  "lobby.cpp",    // Source file
+		  "-o",
+		  "C:/Users/ashis/OneDrive/Desktop/ElevatorLobby/lobby.exe"  // Output file path
+		],
+		"group": {
+		  "kind": "build",
+		  "isDefault": true
+		},
+		"problemMatcher": ["$gcc"],
+		"detail": "Generated task by Debugger."
+	  }
+	]
+  }
+  
