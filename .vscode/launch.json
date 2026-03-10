@@ -1,0 +1,28 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Elevator System",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/elevator_sim.exe",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "externalConsole": true,
+
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+
+      "preLaunchTask": "build elevator system",
+
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
