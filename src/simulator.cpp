@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void Simulator::printSystem(const vector<unique_ptr<Elevator>>& elevators)
+void Simulator::printSystem(const vector<Elevator>& elevators)
 {
     cout << "\n---------------------------\n";
     cout << "     Elevator System\n";
@@ -12,11 +12,11 @@ void Simulator::printSystem(const vector<unique_ptr<Elevator>>& elevators)
 
     for (const auto& elevator : elevators)
     {
-        cout << "Elevator " << elevator->getId()
-             << " | Floor: " << elevator->getCurrentFloor()
+        cout << "Elevator " << elevator.getId()
+             << " | Floor: " << elevator.getCurrentFloor()
              << " | State: ";
 
-        Elevator::State state = elevator->getState();
+        Elevator::State state = elevator.getState();
 
         if (state == Elevator::IDLE)
             cout << "IDLE";

@@ -4,7 +4,6 @@
 #include <iostream>
 #include <climits>
 #include <cmath>
-#include <memory>
 
 using namespace std;
 
@@ -14,7 +13,7 @@ ElevatorSystem::ElevatorSystem(int numElevators, int floors)
 
     for (int i = 0; i < numElevators; i++)
     {
-        elevators.push_back(make_unique<Elevator>(i, floors));
+        elevators.push_back(Elevator(i, floors));;
     }
 }
 
@@ -36,7 +35,7 @@ void ElevatorSystem::internalRequest(int elevatorId, int floor)
     if (elevatorId < 0 || elevatorId >= elevators.size())
         return;
 
-    elevators[elevatorId]->addStop(floor);
+    elevators[elevatorId].addStop(floor);
 }
 
 
@@ -47,11 +46,11 @@ int ElevatorSystem::chooseBestElevator(const Request& req)
 
     for (int i = 0; i < elevators.size(); i++)
     {
-        int elevatorFloor = elevators[i]->getCurrentFloor();
+        int elevatorFloor = elevators[i].getCurrentFloor();
         int distance = abs(elevatorFloor - req.floor);
 
         int score = distance * 10; 
-        Elevator::State state = elevators[i]->getState();
+        Elevator::State state = elevators[i].getState();
 
         if (state == Elevator::IDLE)
         {
@@ -94,7 +93,7 @@ void ElevatorSystem::dispatchRequests()
 
         if (elevatorIndex != -1)
         {
-            elevators[elevatorIndex]->addStop(req.floor);
+            elevators[elevatorIndex].addStop(req.floor);
         }
     }
 }
@@ -106,7 +105,7 @@ void ElevatorSystem::step()
 
     for (auto &elevator : elevators)
     {
-        elevator->step();
+        elevator.step();
     }
 
     Simulator::printSystem(elevators);

@@ -1,7 +1,6 @@
 #ifndef ELEVATOR_SYSTEM_H
 #define ELEVATOR_SYSTEM_H
 
-#include <memory>
 #include <queue>
 #include <vector>
 
@@ -14,7 +13,7 @@ private:
 
     int floors;
 
-    std::vector<std::unique_ptr<Elevator>> elevators;
+    std::vector<Elevator> elevators;
 
     std::queue<Request> requests;
 

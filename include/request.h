@@ -5,13 +5,10 @@ class Request
 {
 public:
 
-    int floor;          // Requested floor
-    bool is_up;         // Direction (true = UP, false = DOWN)
-    bool is_internal;   // Internal elevator request
+    int floor;          
+    bool is_up;         
+    bool is_internal;   
 
-    /*
-    Constructor
-    */
     Request(int f, bool up, bool internal = false)
     {
         floor = f;
